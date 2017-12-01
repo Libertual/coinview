@@ -2,15 +2,18 @@ import * as path from 'path';
 import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
+import Cotizacion from './bittrex/Cotizacion';
 
 // Creates and configures an ExpressJS web server.
 class App {
 
   // ref to Express instance
   public express: express.Application;
+  cotizacion = new Cotizacion;
 
   //Run configuration methods on the Express instance.
   constructor() {
+
     this.express = express();
     this.middleware();
     this.routes();
@@ -31,9 +34,10 @@ class App {
     let router = express.Router();
     // placeholder route handler
     router.get('/', (req, res, next) => {
-      res.json({
-        message: 'Hello World!'
-      });
+      const result = this.cotizacion.getCurrency('BTC','USD');
+      // console.log( result );
+
+      res.json(result);
     });
     this.express.use('/', router);
   }
