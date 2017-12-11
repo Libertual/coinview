@@ -34,14 +34,20 @@ class App {
     let router = express.Router();
     // placeholder route handler
     router.get('/', (req, res, next) => {
-      const result = this.cotizacion.getCurrency('BTC','USD');
-      // console.log( result );
-
-      res.json(result);
+    this.cotizacion.getCurrency('USDT-BTC', (data) => {
+        console.log(data);
+        //console.log('result');
+        //console.log(result);
+        // console.log( result );
+        const response = {
+          success: true,
+          data
+        };
+        res.status(200).send(data);
+      });
     });
     this.express.use('/', router);
   }
-
 }
 
 export default new App().express;

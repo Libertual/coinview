@@ -9,7 +9,7 @@ export default class Cotizacion {
   public getCurrency(market, cb){
     let result;
     bittrex.options(Config);
-    bittrex.sendCustomRequest('https://bittrex.com/api/v1.1/public/getmarketsummary?market=' + market, function( data ) {
+    bittrex.sendCustomRequest( 'https://bittrex.com/api/v1.1/public/getmarketsummary?market=' + market, function( data ) {
       //console.log( data );
       cb(data);
     }, true);

@@ -1,0 +1,23 @@
+{
+  "name": "daemon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/daemon.js",
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tecnual",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-typescript": "^3.2.3",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "node-bittrex-api": "^0.8.1",
+    "request": "^2.83.0"
+  }
+}
